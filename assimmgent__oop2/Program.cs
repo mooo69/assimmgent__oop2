@@ -17,9 +17,9 @@ class HiringDate
 
     public HiringDate(int day, int month, int year)
     {
-        Day = day > 0 && day <= 31 ? day : 1;
-        Month = month > 0 && month <= 12 ? month : 1;
-        Year = year > 1900 ? year : 2000;
+        Day = (day > 0 && day <= 31) ? day : 1;
+        Month = (month > 0 && month <= 12) ? month : 1;
+        Year = (year > 1900) ? year : 2000;
     }
 
     public override string ToString()
@@ -32,19 +32,23 @@ class Employee
 {
     public int ID { get; set; }
     public string Name { get; set; }
+
     private char gender;
     public char Gender
     {
         get { return gender; }
         set { gender = (value == 'M' || value == 'F') ? value : 'M'; }
     }
+
     public SecurityLevel SecurityLevel { get; set; }
+
     private decimal salary;
     public decimal Salary
     {
         get { return salary; }
-        set { salary = value >= 0 ? value : 0; }
+        set { salary = (value >= 0) ? value : 0; }
     }
+
     public HiringDate HireDate { get; set; }
 
     public Employee(int id, string name, char gender, SecurityLevel securityLevel, decimal salary, HiringDate hireDate)
@@ -73,6 +77,8 @@ class Program
         EmpArr[2] = new Employee(3, "Omar", 'M', SecurityLevel.SecurityOfficer, 20000, new HiringDate(1, 1, 2019));
 
         foreach (var emp in EmpArr)
+        {
             Console.WriteLine(emp);
+        }
     }
 }

@@ -5,7 +5,7 @@ enum SecurityLevel
     Guest,
     Developer,
     Secretary,
-    DBA,
+    DBA, 
     SecurityOfficer
 }
 
